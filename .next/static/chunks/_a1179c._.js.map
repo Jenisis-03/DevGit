@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 12, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/Subham/Desktop/devgit/node_modules/%40clerk/clerk-react/src/errors.ts"],"sourcesContent":["export {\n  isClerkAPIResponseError,\n  isClerkRuntimeError,\n  isEmailLinkError,\n  isKnownError,\n  isMetamaskError,\n  EmailLinkErrorCode,\n} from '@clerk/shared/error';\n"],"names":[],"mappings":"","ignoreList":[0]}},
+    {"offset": {"line": 17, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
+    {"offset": {"line": 33, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/Subham/Desktop/devgit/node_modules/%40clerk/nextjs/src/client-boundary/hooks.ts"],"sourcesContent":["'use client';\n\nexport {\n  useClerk,\n  useEmailLink,\n  useOrganization,\n  useOrganizationList,\n  useSession,\n  useSessionList,\n  useSignIn,\n  useSignUp,\n  useUser,\n  useReverification,\n} from '@clerk/clerk-react';\n\nexport {\n  isClerkAPIResponseError,\n  isClerkRuntimeError,\n  isEmailLinkError,\n  isKnownError,\n  isMetamaskError,\n  EmailLinkErrorCode,\n} from '@clerk/clerk-react/errors';\n\nexport { usePromisifiedAuth as useAuth } from './PromisifiedAuthProvider';\n"],"names":[],"mappings":"","ignoreList":[0]}},
+    {"offset": {"line": 40, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}
