@@ -5,10 +5,20 @@
         "app/(protected)/create/page": {
           "moduleId": "[project]/.next-internal/server/app/(protected)/create/page/actions.js { ACTIONS_MODULE0 => \"[project]/node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js [app-rsc] (ecmascript)\" } [app-rsc] (ecmascript)",
           "async": false
+        },
+        "app/(protected)/dashboard/page": {
+          "moduleId": "[project]/.next-internal/server/app/(protected)/dashboard/page/actions.js { ACTIONS_MODULE0 => \"[project]/node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js [app-rsc] (ecmascript)\" } [app-rsc] (ecmascript)",
+          "async": false
+        },
+        "app/_not-found/page": {
+          "moduleId": "[project]/.next-internal/server/app/_not-found/page/actions.js { ACTIONS_MODULE0 => \"[project]/node_modules/@clerk/nextjs/dist/esm/app-router/server-actions.js [app-rsc] (ecmascript)\" } [app-rsc] (ecmascript)",
+          "async": false
         }
       },
       "layer": {
-        "app/(protected)/create/page": "action-browser"
+        "app/(protected)/create/page": "action-browser",
+        "app/(protected)/dashboard/page": "action-browser",
+        "app/_not-found/page": "action-browser"
       }
     }
   },

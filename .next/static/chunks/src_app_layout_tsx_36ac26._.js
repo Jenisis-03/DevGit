@@ -12,7 +12,7 @@
     "static/chunks/node_modules_@clerk_shared_dist_24e5cb._.js",
     "static/chunks/node_modules_swr_dist_37de6b._.js",
     "static/chunks/node_modules_@clerk_clerk-react_dist_7f3b3b._.js",
-    "static/chunks/node_modules_6f4cad._.js",
+    "static/chunks/node_modules_f28b8a._.js",
     "static/chunks/src_073cb3._.js"
   ],
   "source": "dynamic"

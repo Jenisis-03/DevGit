@@ -597,6 +597,10 @@ body {
   margin-left: .5rem;
 }
 
+.ml-3 {
+  margin-left: .75rem;
+}
+
 .ml-auto {
   margin-left: auto;
 }
@@ -625,8 +629,20 @@ body {
   margin-top: auto;
 }
 
+.mt-1 {
+  margin-top: .25rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
 .block {
   display: block;
+}
+
+.inline {
+  display: inline;
 }
 
 .flex {
@@ -660,6 +676,11 @@ body {
 .size-4 {
   width: 1rem;
   height: 1rem;
+}
+
+.size-5 {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .h-1\.5 {
@@ -700,10 +721,6 @@ body {
 
 .h-56 {
   height: 14rem;
-}
-
-.h-6 {
-  height: 1.5rem;
 }
 
 .h-7 {
@@ -812,10 +829,6 @@ body {
 
 .w-5 {
   width: 1.25rem;
-}
-
-.w-6 {
-  width: 1.5rem;
 }
 
 .w-64 {
@@ -1020,6 +1033,10 @@ body {
   list-style-type: none;
 }
 
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
 .flex-row {
   flex-direction: row;
 }
@@ -1078,6 +1095,10 @@ body {
 
 .gap-4 {
   gap: 1rem;
+}
+
+.gap-y-4 {
+  row-gap: 1rem;
 }
 
 .space-x-1 > :not([hidden]) ~ :not([hidden]) {
@@ -1176,6 +1197,10 @@ body {
 
 .rounded-xl {
   border-radius: .75rem;
+}
+
+.rounded {
+  border-radius: .25rem;
 }
 
 .rounded-t-\[10px\] {
@@ -1678,6 +1703,15 @@ body {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity, 1));
+}
+
+.text-white\/80 {
+  color: #fffc;
+}
+
 .underline-offset-4 {
   text-underline-offset: 4px;
 }
@@ -2001,6 +2035,11 @@ body {
 
 .hover\:bg-destructive\/90:hover {
   background-color: hsl(var(--destructive) / .9);
+}
+
+.hover\:bg-gray-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:bg-muted:hover {

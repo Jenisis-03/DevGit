@@ -13,6 +13,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import useProject from "@/hooks/use-projects";
 import { cn } from "@/lib/utils";
 import {
   Bot,
@@ -24,53 +25,43 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
 const items = [
-  {
-    title: "Dashboard",
-    url: "/dashboard",
-    icon: LayoutDashboard,
-  },
-  {
-    title: "Q&A",
-    url: "/qa",
-    icon: Bot,
-  },
-  {
-    title: "Meetings",
-    url: "/meetings",
-    icon: Presentation,
-  },
-  {
-    title: "Billing",
-    url: "/billing",
-    icon: CreditCard,
-  },
+  { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
+  { title: "Q&A", url: "/qa", icon: Bot },
+  { title: "Meetings", url: "/meetings", icon: Presentation },
+  { title: "Billing", url: "/billing", icon: CreditCard },
 ];
 
-const projects = [
-  {
-    name: "Project 1",
-  },
-  {
-    name: "Project 2",
-  },
-  {
-    name: "Project 3",
-  },
-];
+const ProjectItem = ({ project, projectId, setProjectId }) => (
+  <div
+    onClick={() => setProjectId(project.id)}
+    className="flex items-center cursor-pointer p-2 hover:bg-gray-200 transition"
+    aria-label={`Select project ${project.name}`}
+  >
+    <div
+      className={cn(
+        "flex h-8 w-8 items-center justify-center rounded-full border bg-white text-lg text-primary",
+        { "bg-primary text-white": project.id === projectId }
+      )}
+    >
+      {project.name[0]} {/* Displaying the first letter of the project name */}
+    </div>
+    <span className="ml-3 font-medium">{project.name}</span> {/* Displaying the project name */}
+  </div>
+);
 
 export function AppSidebar() {
   const pathname = usePathname();
   const { open } = useSidebar();
+  const { projects, projectId, setProjectId } = useProject();
 
   return (
     <Sidebar collapsible="icon" variant="floating">
       <SidebarHeader>
         <div className="flex items-center gap-2">
           <Image src="/logo.png" alt="logo" width={40} height={40} />
-          {open && (
-            <h1 className="text-xl font-bold text-primary/80">DevCommit</h1>
-          )}
+          {open && <h1 className="text-xl font-bold text-primary/80">DevCommit</h1>}
         </div>
       </SidebarHeader>
       <SidebarContent>
@@ -83,16 +74,14 @@ export function AppSidebar() {
                   <SidebarMenuButton asChild>
                     <Link
                       href={item.url}
+                      aria-label={`Navigate to ${item.title}`}
                       className={cn(
-                        {
-                          "!bg-primary !text-white": pathname === item.url,
-                        },
-                        "list-none",
+                        { "!bg-primary !text-white": pathname === item.url },
+                        "list-none flex items-center p-2"
                       )}
-                      aria-label={item.title}
                     >
                       <item.icon />
-                      <span>{item.title}</span>
+                      <span className="ml-2">{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -106,23 +95,13 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {projects.map((project) => (
-                <SidebarMenuItem key={project.name}>
+                <SidebarMenuItem key={project.id}> {/* Use project.id as key for uniqueness */}
                   <SidebarMenuButton asChild>
-                    <div className="flex items-center">
-                      <div
-                        className={cn(
-                          "flex h-6 w-6 items-center justify-center rounded-sm border bg-white text-sm text-primary",
-                          {
-                            "bg-primary text-white": true,
-                          },
-                        )}
-                      >
-                        {project.name[0]}{" "}
-                        {/* Display the first character of the project name */}
-                      </div>
-                      <span className="ml-2">{project.name}</span>{" "}
-                      {/* Display project name */}
-                    </div>
+                    <ProjectItem
+                      project={project}
+                      projectId={projectId}
+                      setProjectId={setProjectId}
+                    />
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -130,7 +109,7 @@ export function AppSidebar() {
               {open && (
                 <SidebarMenu>
                   <Link href="/create">
-                    <Button size="sm" variant={"outline"} className="w-fit">
+                    <Button size="sm" variant="outline" className="w-fit">
                       <Plus />
                       Create Project
                     </Button>
